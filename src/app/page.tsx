@@ -90,7 +90,7 @@ export default function OrcamentoPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center p-8">
-      <h1 className="text-2xl font-bold mb-6">Orçamento de Procedimentos</h1>
+      <h1 className="text-2xl text-center font-bold mb-6">Orçamento de Procedimentos</h1>
 
       <BodyPartSelector
         selectedArea={selectedArea}

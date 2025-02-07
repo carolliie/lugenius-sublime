@@ -24,7 +24,7 @@ export const ConfirmedProceduresList: React.FC<ProceduresListProps> = ({
                         key={procedure.id}
                         className={`${selectedProcedures.includes(procedure.id) ? "flex" : "hidden" } relative flex items-center justify-between border border-[#54B5B6] bg-white rounded-lg mb-4 px-4 py-2 background w-full bg-gradient-to-r from-[#FFFFFF] via-[#E0FFFF] to-[#FFFFFF] transition-transform duration-300 ease-in-out hover:scale-105`}
                     >
-                        <label className="flex items-center gap-2">
+                        <label className="flex items-center text-start gap-2">
                             <input
                                 type="checkbox"
                                 checked={selectedProcedures.includes(procedure.id)}
