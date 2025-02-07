@@ -9,7 +9,7 @@ interface ProceduresListProps {
     onToggleProcedure: (procedureId: string) => void;
 }
 
-export const ProceduresList: React.FC<ProceduresListProps> = ({
+export const ConfirmedProceduresList: React.FC<ProceduresListProps> = ({
     procedures,
     selectedProcedures,
     onToggleProcedure,
@@ -17,11 +17,12 @@ export const ProceduresList: React.FC<ProceduresListProps> = ({
     return (
         <div className={`flex flex-col gap-4 transition-all duration-500 ease-in-out transform ${procedures.length > 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}>
+            <h3 className="text-lg text-center font-semibold pt-4">Selecione os procedimentos que deseja <strong>CONFIRMAR</strong></h3>
             <ul>
                 {procedures.map((procedure) => (
                     <li
                         key={procedure.id}
-                        className="relative flex items-center justify-between border border-[#54B5B6] bg-white rounded-lg mb-4 px-4 py-2 background w-full bg-gradient-to-r from-[#FFFFFF] via-[#E0FFFF] to-[#FFFFFF] transition-transform duration-300 ease-in-out hover:scale-105"
+                        className={`${selectedProcedures.includes(procedure.id) ? "flex" : "hidden" } relative flex items-center justify-between border border-[#54B5B6] bg-white rounded-lg mb-4 px-4 py-2 background w-full bg-gradient-to-r from-[#FFFFFF] via-[#E0FFFF] to-[#FFFFFF] transition-transform duration-300 ease-in-out hover:scale-105`}
                     >
                         <label className="flex items-center gap-2">
                             <input
@@ -31,8 +32,8 @@ export const ProceduresList: React.FC<ProceduresListProps> = ({
                             />
                             <span
                                 className={`w-5 h-5 flex items-center justify-center border-2 rounded-md transition-all duration-300 ${selectedProcedures.includes(procedure.id)
-                                    ? "bg-[#128385] border-[#128385] text-white"
-                                    : "bg-white border-gray-300"
+                                        ? "bg-[#128385] border-[#128385] text-white"
+                                        : "bg-white border-gray-300"
                                     }`}
                             >
                                 {selectedProcedures.includes(procedure.id) && (
@@ -52,7 +53,7 @@ export const ProceduresList: React.FC<ProceduresListProps> = ({
                                     </svg>
                                 )}
                             </span>
-                            {procedure.name}
+                            {procedure.name} ({procedure.area})
                         </label>
                         <span className="text-sm text-gray-600 font-semibold">R$ {procedure.price}</span>
                     </li>
