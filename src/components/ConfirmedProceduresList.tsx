@@ -17,7 +17,7 @@ export const ConfirmedProceduresList: React.FC<ProceduresListProps> = ({
     return (
         <div className={`flex flex-col gap-4 transition-all duration-500 ease-in-out transform ${procedures.length > 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}>
-            <h3 className="text-lg text-center font-semibold pt-4">Selecione os procedimentos que deseja <strong>CONFIRMAR</strong></h3>
+            <h3 className="text-lg text-center font-semibold pt-4">Wählen Sie die Verfahren aus, die Sie <strong>BESTÄTIGEN</strong> möchten</h3>
             <ul>
                 {procedures.map((procedure) => (
                     <li
@@ -55,7 +55,7 @@ export const ConfirmedProceduresList: React.FC<ProceduresListProps> = ({
                             </span>
                             {procedure.name} ({procedure.area})
                         </label>
-                        <span className="text-sm text-gray-600 font-semibold">R$ {procedure.price}</span>
+                        <span className="text-sm text-gray-600 font-semibold">€ {procedure.price}</span>
                     </li>
 
                 ))}

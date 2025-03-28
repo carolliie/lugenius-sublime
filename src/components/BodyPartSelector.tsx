@@ -13,17 +13,17 @@ export const BodyPartSelector: React.FC<BodyPartSelectorProps> = ({
     onSelectArea,
 }) => {
     const bodyAreas = [
-        { id: "face", name: "Rosto", top: "10%", left: "75%" },
+        { id: "face", name: "Gesicht", top: "10%", left: "75%" },
         { id: "abdomen", name: "Abdomen", top: "38%", left: "15%" },
-        { id: "breast", name: "Seios", top: "25%", left: "75%" },
-        { id: "hip", name: "Quadril", top: "48%", left: "80%" },
-        { id: "thighs", name: "Coxas", top: "56%", left: "10%" },
-        { id: "calf", name: "Panturrilha", top: "72%", left: "90%" },
+        { id: "breast", name: "Brüste", top: "25%", left: "75%" },
+        { id: "hip", name: "Hüfte", top: "48%", left: "80%" },
+        { id: "thighs", name: "Schenkel", top: "56%", left: "10%" },
+        { id: "calf", name: "Kalb", top: "72%", left: "90%" },
     ];
 
     return (
         <div className="flex flex-col items-center">
-            <h2 className="text-lg font-semibold mb-4">Selecione uma área do corpo</h2>
+            <h2 className="text-lg font-semibold mb-4">Wählen Sie einen Bereich des Körpers aus</h2>
             <div className="relative w-[300px] h-[500px]">
                 <Image
                     alt="womans body"

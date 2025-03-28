@@ -9,49 +9,49 @@ import { ConfirmedProceduresList } from "@/components/ConfirmedProceduresList";
 const bodyAreas: BodyArea[] = [
   {
     id: "face",
-    name: "Rosto",
+    name: "Gesicht",
     procedures: [
-      { id: "cleaning", name: "Limpeza de Pele", price: 150, area: "Rosto" },
-      { id: "peeling", name: "Peeling", price: 200, area: "Rosto" },
+      { id: "cleaning", name: "Hautreinigung", price: 150, area: "Gesicht" },
+      { id: "peeling", name: "Peeling", price: 200, area: "Gesicht" },
     ],
   },
   {
     id: "breast",
-    name: "Seios",
-    procedures: [{ id: "breastDrainage", name: "Drenagem Linfática", price: 100, area: "Seios" }],
+    name: "Brüste",
+    procedures: [{ id: "breastDrainage", name: "Lymphdrainage", price: 100, area: "Brüste" }],
   },
   {
     id: "hip",
-    name: "Quadril",
+    name: "Hüfte",
     procedures: [
-      { id: "hipDrainage", name: "Drenagem Linfática", price: 100, area: "Quadril" },
-      { id: "hipLipo", name: "Lipoescultura", price: 500, area: "Quadril" },
-      { id: "hipMassage", name: "Massagem Modeladora", price: 120, area: "Quadril" },
+      { id: "hipDrainage", name: "Lymphdrainage", price: 100, area: "Hüfte" },
+      { id: "hipLipo", name: "Liposkulptur", price: 500, area: "Hüfte" },
+      { id: "hipMassage", name: "Modellierende Massage", price: 120, area: "Hüfte" },
     ],
   },
   {
     id: "abdomen",
-    name: "Abdômen",
+    name: "Abdomen",
     procedures: [
-      { id: "abdomenLipo", name: "Lipoescultura", price: 500, area: "Abdômen" },
-      { id: "abdomenMassage", name: "Massagem Modeladora", price: 120, area: "Abdômen" },
+      { id: "abdomenLipo", name: "Liposkulptur", price: 500, area: "Abdomen" },
+      { id: "abdomenMassage", name: "Modellierende Massage", price: 120, area: "Abdomen" },
     ],
   },
   {
     id: "thighs",
-    name: "Coxas",
+    name: "Schenkel",
     procedures: [
-      { id: "thighsDrainage", name: "Drenagem Linfática", price: 100, area: "Coxas" },
-      { id: "thighsVeins", name: "Tratamento de Varizes", price: 300, area: "Coxas" },
-      { id: "thighsCelulites", name: "Tratamento de Celulites", price: 300, area: "Coxas" },
+      { id: "thighsDrainage", name: "Lymphdrainage", price: 100, area: "Schenkel" },
+      { id: "thighsVeins", name: "Behandlung von Krampfadern", price: 300, area: "Schenkel" },
+      { id: "thighsCelulites", name: "Cellulite-Behandlung", price: 300, area: "Schenkel" },
     ],
   },
   {
     id: "calf",
-    name: "Panturrilha",
+    name: "Kalb",
     procedures: [
-      { id: "calfDrainage", name: "Drenagem Linfática", price: 100, area: "Panturrilha" },
-      { id: "calfVeins", name: "Tratamento de Varizes", price: 300, area: "Panturrilha" },
+      { id: "calfDrainage", name: "Lymphdrainage", price: 100, area: "Kalb" },
+      { id: "calfVeins", name: "Behandlung von Krampfadern", price: 300, area: "Kalb" },
     ],
   },
 ];
@@ -81,7 +81,7 @@ export default function OrcamentoPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center p-8">
-      <h1 className="text-2xl text-center font-bold mb-6">Orçamento de Procedimentos</h1>
+      <h1 className="text-2xl text-center font-bold mb-6">Verfahrensbudget</h1>
 
       <BodyPartSelector selectedArea={selectedArea} onSelectArea={handleSelectArea} />
 
@@ -89,7 +89,7 @@ export default function OrcamentoPage() {
         {selectedArea && (
           <div>
             <h3 className="text-lg text-center font-semibold py-4 xl:w-[500px] md:w-[450px] sm:w-[400px]">
-              Selecione os procedimentos para{" "}
+              Wählen Sie Verfahren zu {" "}
               <strong>{bodyAreas.find((area) => area.id === selectedArea)?.name}</strong>
             </h3>
             <ProceduresList
@@ -109,12 +109,12 @@ export default function OrcamentoPage() {
               selectedProcedures={selectedProcedures}
               onToggleProcedure={handleToggleProcedure}
             />
-            <h3 className="text-lg font-semibold py-4">Valor total:</h3>
+            <h3 className="text-lg font-semibold py-4">Gesamtwert:</h3>
             <h2 className="text-lg text-center font-bold py-2 px-4 bg-[#AEFAFC] border border-[#128385] rounded-lg">
-              R$ {totalPrice}
+              € {totalPrice}
             </h2>
             <button className="mt-4 px-6 py-2 bg-[#128385] text-white rounded-lg hover:bg-[#145758]">
-              Confirmar Orçamento
+              Budget bestätigen
             </button>
           </div>
         )}

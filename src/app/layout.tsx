@@ -9,7 +9,7 @@ const soraSerif = Sora({
 
 export const metadata: Metadata = {
   title: "Sublime Esthetics",
-  description: "Página de orçamentos",
+  description: "Preisseite",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={`${soraSerif.variable} antialiased`}
       >
