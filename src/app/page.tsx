@@ -11,47 +11,48 @@ const bodyAreas: BodyArea[] = [
     id: "face",
     name: "Gesicht",
     procedures: [
-      { id: "cleaning", name: "Hautreinigung", price: 150, area: "Gesicht" },
-      { id: "peeling", name: "Peeling", price: 200, area: "Gesicht" },
+      { id: "lipo", name: "Doppelkinn", price: 1400, area: "Gesicht" },
     ],
   },
   {
     id: "breast",
     name: "Brüste",
-    procedures: [{ id: "breastDrainage", name: "Lymphdrainage", price: 100, area: "Brüste" }],
+    procedures: [
+      { id: "breastDrainage", name: "Lymphdrainage", price: 1400, area: "Brüste" },
+    ],
   },
   {
     id: "hip",
     name: "Hüfte",
     procedures: [
-      { id: "hipDrainage", name: "Lymphdrainage", price: 100, area: "Hüfte" },
-      { id: "hipLipo", name: "Liposkulptur", price: 500, area: "Hüfte" },
-      { id: "hipMassage", name: "Modellierende Massage", price: 120, area: "Hüfte" },
+      { id: "hipDrainage", name: "Hüfte", price: 1400, area: "Hüfte" },
     ],
   },
   {
     id: "abdomen",
     name: "Abdomen",
     procedures: [
-      { id: "abdomenLipo", name: "Liposkulptur", price: 500, area: "Abdomen" },
-      { id: "abdomenMassage", name: "Modellierende Massage", price: 120, area: "Abdomen" },
+      { id: "abdomenLipo", name: "Bauch", price: 1400, area: "Abdomen" },
+      { id: "abdomenMassage", name: "Taille", price: 1400, area: "Abdomen" },
+      { id: "abdomenRucken", name: "Rücken", price: 1400, area: "Abdomen" },
+      { id: "abdomenVenushugel", name: "Venushügel", price: 1400, area: "Abdomen" },
     ],
   },
   {
     id: "thighs",
     name: "Schenkel",
     procedures: [
-      { id: "thighsDrainage", name: "Lymphdrainage", price: 100, area: "Schenkel" },
-      { id: "thighsVeins", name: "Behandlung von Krampfadern", price: 300, area: "Schenkel" },
-      { id: "thighsCelulites", name: "Cellulite-Behandlung", price: 300, area: "Schenkel" },
+      { id: "beineHinten", name: "Beine hinten", price: 1400, area: "Schenkel" },
+      { id: "beineVorne", name: "Beine vorne", price: 1400, area: "Schenkel" },
+      { id: "innenschenkel", name: "Innenschenkel", price: 1400, area: "Schenkel" },
+      { id: "reiterhosen", name: "Reiterhosen", price: 1400, area: "Schenkel" },
     ],
   },
   {
     id: "calf",
     name: "Kalb",
     procedures: [
-      { id: "calfDrainage", name: "Lymphdrainage", price: 100, area: "Kalb" },
-      { id: "calfVeins", name: "Behandlung von Krampfadern", price: 300, area: "Kalb" },
+      { id: "calfDrainage", name: "Waden", price: 1400, area: "Kalb" },
     ],
   },
 ];
