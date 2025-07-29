@@ -54,7 +54,7 @@ export const ProceduresList: React.FC<ProceduresListProps> = ({
                             </span>
                             {procedure.name}
                         </label>
-                        <span className="text-sm text-gray-600 font-semibold">€ {procedure.price}</span>
+                        <span className="text-sm text-gray-600 font-semibold">CHF {procedure.price}</span>
                     </li>
 
                 ))}

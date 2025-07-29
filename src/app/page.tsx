@@ -11,32 +11,32 @@ const bodyAreas: BodyArea[] = [
     id: "face",
     name: "Gesicht",
     procedures: [
-      { id: "lipo", name: "Doppelkinn", price: 1400, area: "Gesicht" },
-    ],
+      { id: "doppelkinn", name: "Doppelkinn", price: 1400, area: "Gesicht" }
+    ]
   },
   {
-    id: "breast",
-    name: "Brüste",
+    id: "arms",
+    name: "Arme",
     procedures: [
-      { id: "breastDrainage", name: "Lymphdrainage", price: 1400, area: "Brüste" },
-    ],
-  },
-  {
-    id: "hip",
-    name: "Hüfte",
-    procedures: [
-      { id: "hipDrainage", name: "Hüfte", price: 1400, area: "Hüfte" },
-    ],
+      { id: "arme", name: "Arme", price: 1400, area: "Arme" }
+    ]
   },
   {
     id: "abdomen",
     name: "Abdomen",
     procedures: [
-      { id: "abdomenLipo", name: "Bauch", price: 1400, area: "Abdomen" },
-      { id: "abdomenMassage", name: "Taille", price: 1400, area: "Abdomen" },
-      { id: "abdomenRucken", name: "Rücken", price: 1400, area: "Abdomen" },
-      { id: "abdomenVenushugel", name: "Venushügel", price: 1400, area: "Abdomen" },
-    ],
+      { id: "bauch", name: "Bauch", price: 1400, area: "Abdomen" },
+      { id: "taille", name: "Taille", price: 1400, area: "Abdomen" },
+      { id: "rucken", name: "Rücken", price: 1400, area: "Abdomen" },
+      { id: "venushugel", name: "Venushügel", price: 1400, area: "Abdomen" }
+    ]
+  },
+  {
+    id: "hip",
+    name: "Hüfte",
+    procedures: [
+      { id: "hufte", name: "Hüfte", price: 1400, area: "Hüfte" }
+    ]
   },
   {
     id: "thighs",
@@ -45,21 +45,21 @@ const bodyAreas: BodyArea[] = [
       { id: "beineHinten", name: "Beine hinten", price: 1400, area: "Schenkel" },
       { id: "beineVorne", name: "Beine vorne", price: 1400, area: "Schenkel" },
       { id: "innenschenkel", name: "Innenschenkel", price: 1400, area: "Schenkel" },
-      { id: "reiterhosen", name: "Reiterhosen", price: 1400, area: "Schenkel" },
-    ],
+      { id: "reiterhosen", name: "Reiterhosen", price: 1400, area: "Schenkel" }
+    ]
   },
   {
     id: "calf",
-    name: "Kalb",
+    name: "Waden",
     procedures: [
-      { id: "calfDrainage", name: "Waden", price: 1400, area: "Kalb" },
-    ],
-  },
+      { id: "waden", name: "Waden", price: 1400, area: "Waden" }
+    ]
+  }
 ];
 
 export default function OrcamentoPage() {
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const [selectedProcedures, setSelectedProcedures] = useState<string[]>([]); // Armazena todos os procedimentos selecionados globalmente
+  const [selectedProcedures, setSelectedProcedures] = useState<string[]>([]);
 
   const handleSelectArea = (areaId: string) => {
     setSelectedArea(areaId);
@@ -84,41 +84,44 @@ export default function OrcamentoPage() {
     <div className="min-h-screen flex flex-col items-center p-8">
       <h1 className="text-2xl text-center font-bold mb-6">Verfahrensbudget</h1>
 
-      <BodyPartSelector selectedArea={selectedArea} onSelectArea={handleSelectArea} />
+      <div className="relative w-full flex flex-col xl:flex-row items-start justify-center xl:items-start xl:justify-center transition-all duration-500 ease-in-out">
+        <div className={`transition-all duration-500 transform flex justify-center w-full xl:w-auto ${selectedArea ? "xl:-translate-x-32" : "xl:translate-x-0"}`}>
+          <BodyPartSelector selectedArea={selectedArea} onSelectArea={handleSelectArea} />
+        </div>
 
-      <div className={`transition-opacity duration-500 ease-in-out ${selectedArea ? "opacity-100" : "opacity-0"}`}>
-        {selectedArea && (
-          <div>
-            <h3 className="text-lg text-center font-semibold py-4 xl:w-[500px] md:w-[450px] sm:w-[400px]">
-              Wählen Sie Verfahren zu {" "}
-              <strong>{bodyAreas.find((area) => area.id === selectedArea)?.name}</strong>
-            </h3>
-            <ProceduresList
-              procedures={selectedAreaProcedures}
-              selectedProcedures={selectedProcedures}
-              onToggleProcedure={handleToggleProcedure}
-            />
-          </div>
-        )}
-      </div>
+        <div className={`w-full mt-10 xl:mt-0 xl:ml-10 transition-all duration-500 ease-in-out ${selectedArea ? "opacity-100 max-w-[500px]" : "opacity-0 max-w-[0px]"}`}>
+          {selectedArea && (
+            <>
+              <h3 className="text-lg text-center font-semibold py-4">
+                Wählen Sie Verfahren zu <strong>{bodyAreas.find((area) => area.id === selectedArea)?.name}</strong>
+              </h3>
+              <ProceduresList
+                procedures={selectedAreaProcedures}
+                selectedProcedures={selectedProcedures}
+                onToggleProcedure={handleToggleProcedure}
+              />
+            </>
+          )}
 
-      <div className={`transition-all duration-500 ease-in-out transform ${totalPrice > 0 ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-4"}`}>
-        {totalPrice > 0 && (
-          <div className="mt-6 text-center xl:w-[500px] md:w-[450px] sm:w-[400px]">
-            <ConfirmedProceduresList
-              procedures={bodyAreas.flatMap((area) => area.procedures).filter((proc) => selectedProcedures.includes(proc.id))}
-              selectedProcedures={selectedProcedures}
-              onToggleProcedure={handleToggleProcedure}
-            />
-            <h3 className="text-lg font-semibold py-4">Gesamtwert:</h3>
-            <h2 className="text-lg text-center font-bold py-2 px-4 bg-[#AEFAFC] border border-[#128385] rounded-lg">
-              € {totalPrice}
-            </h2>
-            <button className="mt-4 px-6 py-2 bg-[#128385] text-white rounded-lg hover:bg-[#145758]">
-              Budget bestätigen
-            </button>
-          </div>
-        )}
+          {totalPrice > 0 && (
+            <div className="mt-6 text-center">
+              <ConfirmedProceduresList
+                procedures={bodyAreas.flatMap((area) => area.procedures).filter((proc) => selectedProcedures.includes(proc.id))}
+                selectedProcedures={selectedProcedures}
+                onToggleProcedure={handleToggleProcedure}
+              />
+              <h3 className="text-lg font-semibold py-4">Gesamtwert:</h3>
+              <h2 className="text-lg text-center font-bold py-2 px-4 bg-[#AEFAFC] border border-[#128385] rounded-lg">
+                CHF {totalPrice.toLocaleString("de-CH")}
+              </h2>
+              <a href="https://sublimesite.lugenix.com/#beratung-buchen">
+                <button className="mt-4 px-6 py-2 bg-[#128385] text-white rounded-lg hover:bg-[#145758]">
+                  Budget bestätigen
+                </button>
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

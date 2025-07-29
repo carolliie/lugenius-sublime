@@ -13,9 +13,9 @@ export const BodyPartSelector: React.FC<BodyPartSelectorProps> = ({
     onSelectArea,
 }) => {
     const bodyAreas = [
-        { id: "face", name: "Gesicht", top: "10%", left: "75%" },
+        //{ id: "face", name: "Gesicht", top: "10%", left: "75%" },
         { id: "abdomen", name: "Abdomen", top: "38%", left: "15%" },
-        { id: "breast", name: "Brüste", top: "25%", left: "75%" },
+        //{ id: "breast", name: "Brüste", top: "25%", left: "75%" },
         { id: "hip", name: "Hüfte", top: "48%", left: "80%" },
         { id: "thighs", name: "Schenkel", top: "56%", left: "10%" },
         { id: "calf", name: "Kalb", top: "72%", left: "90%" },
