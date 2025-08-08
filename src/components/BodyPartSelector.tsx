@@ -18,7 +18,7 @@ export const BodyPartSelector: React.FC<BodyPartSelectorProps> = ({
         //{ id: "breast", name: "Brüste", top: "25%", left: "75%" },
         { id: "hip", name: "Hüfte", top: "48%", left: "80%" },
         { id: "thighs", name: "Schenkel", top: "56%", left: "10%" },
-        { id: "calf", name: "Kalb", top: "72%", left: "90%" },
+        { id: "calf", name: "Wade", top: "72%", left: "90%" },
     ];
 
     return (

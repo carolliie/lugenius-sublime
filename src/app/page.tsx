@@ -40,19 +40,19 @@ const bodyAreas: BodyArea[] = [
   },
   {
     id: "thighs",
-    name: "Schenkel",
+    name: "Beine",
     procedures: [
-      { id: "beineHinten", name: "Beine hinten", price: 1400, area: "Schenkel" },
-      { id: "beineVorne", name: "Beine vorne", price: 1400, area: "Schenkel" },
-      { id: "innenschenkel", name: "Innenschenkel", price: 1400, area: "Schenkel" },
-      { id: "reiterhosen", name: "Reiterhosen", price: 1400, area: "Schenkel" }
+      { id: "beineHinten", name: "Beine hinten", price: 1400, area: "Beine" },
+      { id: "beineVorne", name: "Beine vorne", price: 1400, area: "Beine" },
+      { id: "innenschenkel", name: "Innenschenkel", price: 1400, area: "Beine" },
+      { id: "reiterhosen", name: "Reiterhosen", price: 1400, area: "Beine" }
     ]
   },
   {
     id: "calf",
-    name: "Waden",
+    name: "Wade",
     procedures: [
-      { id: "waden", name: "Waden", price: 1400, area: "Waden" }
+      { id: "wade", name: "Wade", price: 1400, area: "Wade" }
     ]
   }
 ];
@@ -82,7 +82,7 @@ export default function OrcamentoPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center p-8">
-      <h1 className="text-2xl text-center font-bold mb-6">Verfahrensbudget</h1>
+      <h1 className="text-2xl text-center font-bold mb-6">Preisliste</h1>
 
       <div className="relative w-full flex flex-col xl:flex-row items-start justify-center xl:items-start xl:justify-center transition-all duration-500 ease-in-out">
         <div className={`transition-all duration-500 transform flex justify-center w-full xl:w-auto ${selectedArea ? "xl:-translate-x-32" : "xl:translate-x-0"}`}>
